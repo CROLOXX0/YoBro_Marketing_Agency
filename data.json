@@ -1,0 +1,80 @@
+{
+  "leads": [
+    {
+      "id": "1780335303590",
+      "name": "Shaan",
+      "email": "shaan@gmail.com",
+      "contact": "7878787878",
+      "code": "Yobro2026",
+      "password": "Shayan@213",
+      "createdAt": "2026-06-01T17:35:03.590Z"
+    }
+  ],
+  "pricing": {
+    "trial": {
+      "name": "One-Week Trial",
+      "price": 1999,
+      "period": "week"
+    },
+    "starter": {
+      "name": "Starter",
+      "price": 6999,
+      "period": "mo"
+    },
+    "growth": {
+      "name": "Growth",
+      "price": 9999,
+      "period": "mo"
+    },
+    "premium": {
+      "name": "Premium",
+      "price": 17999,
+      "period": "mo"
+    }
+  },
+  "discountSettings": {
+    "code": "Yobro2026",
+    "percentage": 10
+  },
+  "portfolio": [
+    {
+      "id": "1780337448618",
+      "title": "My Edits",
+      "categories": [],
+      "imgSrc": "/uploads/1780337803449-223686049-BASS_DA_DA_DA_VIDEO_EDITED.mp4",
+      "mediaType": "video",
+      "description": "",
+      "beforeMetric": "",
+      "afterMetric": "",
+      "afterLabel": "",
+      "gridSize": "vertical-9-16",
+      "height": 400
+    },
+    {
+      "id": "1780337834720",
+      "title": "",
+      "categories": [],
+      "imgSrc": "/uploads/1780337839217-988632257-0521.mp4",
+      "mediaType": "video",
+      "description": "",
+      "beforeMetric": "",
+      "afterMetric": "",
+      "afterLabel": "",
+      "gridSize": "wide-16-9",
+      "height": 400
+    },
+    {
+      "id": "1780337847247",
+      "title": "",
+      "categories": [],
+      "imgSrc": "/uploads/1780337851571-685730562-BASS_DA_DA_DA_VIDEO_EDITED.mp4",
+      "mediaType": "video",
+      "description": "",
+      "beforeMetric": "",
+      "afterMetric": "",
+      "afterLabel": "",
+      "gridSize": "vertical-9-16",
+      "height": 400
+    }
+  ]
+}

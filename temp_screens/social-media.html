@@ -1,0 +1,272 @@
+<!DOCTYPE html><html class="dark" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>SMM Services - YoBro Marketing</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Plus+Jakarta+Sans:wght@700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "inverse-primary": "#8f4d00",
+                        "on-surface-variant": "#dcc2af",
+                        "tertiary": "#dcbbff",
+                        "error": "#ffb4ab",
+                        "surface-bright": "#3a3939",
+                        "glow-orange": "rgba(255, 146, 28, 0.4)",
+                        "on-primary-fixed": "#2e1500",
+                        "on-primary": "#4d2700",
+                        "on-surface": "#e5e2e1",
+                        "surface-container-low": "#1c1b1b",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "on-secondary": "#313030",
+                        "on-error-container": "#ffdad6",
+                        "tertiary-container": "#c39ded",
+                        "primary-container": "#ff921c",
+                        "surface": "#131313",
+                        "glass-stroke": "rgba(255, 255, 255, 0.1)",
+                        "error-container": "#93000a",
+                        "surface-tint": "#ffb77b",
+                        "inverse-surface": "#e5e2e1",
+                        "background": "#131313",
+                        "outline": "#a48c7b",
+                        "secondary": "#c8c6c5",
+                        "on-primary-fixed-variant": "#6d3a00",
+                        "on-background": "#e5e2e1",
+                        "primary-fixed": "#ffdcc2",
+                        "on-tertiary-container": "#513078",
+                        "on-error": "#690005",
+                        "primary-fixed-dim": "#ffb77b",
+                        "surface-dim": "#131313",
+                        "primary": "#ffba81",
+                        "on-tertiary-fixed": "#2a0350",
+                        "on-secondary-container": "#bab8b7",
+                        "on-tertiary": "#401e66",
+                        "on-secondary-fixed-variant": "#474646",
+                        "inverse-on-surface": "#313030",
+                        "surface-container-lowest": "#0e0e0e",
+                        "surface-container-high": "#2a2a2a",
+                        "surface-container": "#201f1f",
+                        "secondary-container": "#4a4949",
+                        "on-tertiary-fixed-variant": "#58367e",
+                        "crisp-white": "#FFFFFF",
+                        "on-primary-container": "#653500",
+                        "surface-container-highest": "#353534",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "tertiary-fixed-dim": "#dab9ff",
+                        "tertiary-fixed": "#efdbff",
+                        "pure-black": "#000000",
+                        "outline-variant": "#554335",
+                        "secondary-fixed": "#e5e2e1",
+                        "surface-variant": "#353534"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "gutter": "24px",
+                        "section-padding": "120px",
+                        "margin-mobile": "20px",
+                        "unit": "8px",
+                        "container-max": "1280px"
+                    },
+                    fontFamily: {
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "display-lg-mobile": ["Plus Jakarta Sans"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-bold": ["Inter"],
+                        "display-lg": ["Plus Jakarta Sans"]
+                    },
+                    fontSize: {
+                        "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "700" }],
+                        "headline-lg": ["48px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-bold": ["14px", { "lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "display-lg": ["72px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glow-hover:hover {
+            box-shadow: 0 0 20px rgba(255, 146, 28, 0.3);
+            transform: scale(1.02);
+        }
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body class="bg-pure-black text-on-background min-h-screen font-body-md selection:bg-primary-container selection:text-pure-black overflow-x-hidden">
+<!-- TopNavBar (Shared Component) -->
+<nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-section-padding py-4 max-w-container-max mx-auto bg-surface/80 backdrop-blur-xl border-b border-glass-stroke shadow-none">
+<div class="font-headline-md text-headline-md font-extrabold text-primary tracking-tighter">
+            YoBro Marketing
+        </div>
+<div class="hidden md:flex gap-gutter items-center">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md hover:text-primary transition-colors duration-300" href="#">Services</a>
+<a class="text-on-surface-variant font-medium font-body-md text-body-md hover:text-primary transition-all duration-300 hover:scale-95 px-4 py-2 border border-glass-stroke rounded-DEFAULT glass-card" href="#">Pricing</a>
+<a class="text-on-surface-variant font-medium font-body-md text-body-md hover:text-primary transition-all duration-300 hover:scale-95 px-4 py-2 border border-glass-stroke rounded-DEFAULT glass-card" href="#">Portfolio</a>
+<a class="text-on-surface-variant font-medium font-body-md text-body-md hover:text-primary transition-all duration-300 hover:scale-95 px-4 py-2 border border-glass-stroke rounded-DEFAULT glass-card" href="#">FAQ</a>
+</div>
+<div class="hidden md:flex gap-4 items-center">
+<a href="#" class="font-label-bold text-label-bold text-on-surface-variant px-6 py-3 border border-primary/20 bg-primary/10 rounded-DEFAULT hover:bg-primary/20 hover:text-primary transition-all duration-300 mr-4">Redeem</a><button class="font-label-bold text-label-bold text-crisp-white bg-transparent border border-white px-6 py-3 rounded-DEFAULT hover:bg-crisp-white hover:text-pure-black transition-all duration-300">
+                View Packages
+            </button>
+<button class="font-label-bold text-label-bold text-pure-black bg-[#FF921C] px-6 py-3 rounded-DEFAULT glow-hover transition-all duration-300">
+                Book Free Consultation
+            </button>
+</div>
+<!-- Mobile Menu Trigger -->
+<div class="md:hidden">
+<span class="material-symbols-outlined text-on-surface text-[32px] cursor-pointer">menu</span>
+</div>
+</nav>
+<main class="pt-[100px]">
+<!-- Hero Section -->
+<section class="min-h-[819px] flex flex-col justify-center px-margin-mobile md:px-section-padding max-w-container-max mx-auto relative mb-section-padding pt-20">
+<!-- Background Glow -->
+<div class="absolute top-1/4 right-1/4 w-[400px] h-[400px] bg-primary-container rounded-full blur-[150px] opacity-20 pointer-events-none"></div>
+<div class="absolute bottom-0 left-0 w-[300px] h-[300px] bg-tertiary rounded-full blur-[120px] opacity-10 pointer-events-none"></div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-section-padding items-center z-10 relative">
+<div class="flex flex-col gap-6">
+<div class="flex gap-2">
+<span class="border border-glass-stroke px-3 py-1 rounded-full font-label-bold text-label-bold text-on-surface-variant text-[12px]">SMM</span>
+<span class="border border-glass-stroke px-3 py-1 rounded-full font-label-bold text-label-bold text-on-surface-variant text-[12px]">Growth Strategy</span>
+</div>
+<h1 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-crisp-white">
+                        Dominate <br> The Feed.
+                    </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+                        We don't just post. We build communities, engineer viral moments, and turn passive scrollers into rabid brand advocates. Strategic Social Media Management designed for hyper-growth.
+                    </p>
+<div class="flex gap-4 mt-4">
+<button class="font-label-bold text-label-bold text-pure-black bg-[#FF921C] px-8 py-4 rounded-DEFAULT glow-hover transition-all duration-300 flex items-center gap-2">
+                            Start Growing <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="relative h-[500px] rounded-xl overflow-hidden glass-card p-4">
+<img alt="Abstract digital social media concept" class="w-full h-full object-cover rounded-lg opacity-80" data-alt="A high-contrast, modern abstract digital composition illustrating social media connectivity. Glowing neon orange and bright white connecting lines overlay a deep, premium slate black background. Floating icons representing likes, shares, and comments appear to hover in 3D space with subtle glassmorphic reflections. The lighting is cinematic, emphasizing a tech-forward, high-impact aesthetic typical of a luxury marketing agency." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAc3aDI3tZlnhlVWRG4KURvFa9yq2fxJMeY3uHtECSPgHcgou_cZje9QaxK9nDUQK8pXNv6WMznYVTyAPpJqoA-rYPi3GES0Wk0F1AbSoNjfF2S5BugVCzakJOgpWjJOJzFLEYbV-u9yOrpGOufbyJ4es-axRNJWt3jT5oTgPe9Gf-iGVRc81FgShV6BomjFO3l9Gxx-EOBHvvsit_oLuIZVJf-mcXg2JlSAIaSWCYYCG3Q174yDjCc70J2KasTJBqEtCmTzZuICQ8o">
+<!-- Floating UI Element -->
+<div class="absolute -left-6 top-1/4 glass-card p-4 rounded-lg flex items-center gap-4 floating border border-primary/30 shadow-[0_0_15px_rgba(255,146,28,0.2)]">
+<div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">trending_up</span>
+</div>
+<div>
+<p class="font-label-bold text-label-bold text-on-surface">+340%</p>
+<p class="font-body-md text-[12px] text-on-surface-variant">Engagement Rate</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid Services -->
+<section class="px-margin-mobile md:px-section-padding max-w-container-max mx-auto mb-section-padding">
+<div class="text-center mb-16 flex flex-col items-center">
+<h2 class="font-headline-lg text-headline-lg text-crisp-white mb-4">The SMM Arsenal</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Everything you need to capture attention and convert it into revenue.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-unit auto-rows-[250px]">
+<!-- Item 1: Large -->
+<div class="glass-card rounded-xl p-8 md:col-span-2 md:row-span-2 flex flex-col justify-end relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-t from-[#121212] via-transparent to-transparent z-10"></div>
+<img alt="Data and strategy" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-60 transition-opacity duration-500" data-alt="A sleek, futuristic dashboard interface displaying upward trending graphs and analytics against a pure black background. The charts are illuminated in bright glowing orange and crisp white. Subtle glassmorphic panels hover over the data, adding depth. The scene is lit with cinematic, high-contrast lighting to convey a premium, data-driven marketing strategy aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmEs6sLip5OPbDZpYPrMdSUWnHYPse7agXb7NuOAwhBUbYBKEAIJYlj9D0oouIVgN2lb02FfstcnGohf9wUmKxzk6S1m-WnzmTObZFJHDD6e8BImvFFGl2r1vhbq9aRxnIhU8vk8TJRS3JWkOp8YWeTeoWvuO0B_zHT60rgWVa-Y81S9bHDX_j5aaPTmeuFvflOw1SFPgdcpBNqaxcCUOk8YEyB6a2-Wm9ai6ZRAykqFaV8kcmoG4W3mJk5y6NdOZ72fmLoj-Pvkv0">
+<div class="relative z-20">
+<span class="material-symbols-outlined text-primary text-[40px] mb-4">analytics</span>
+<h3 class="font-headline-md text-headline-md text-crisp-white mb-2">Data-Driven Strategy</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">We analyze audience behavior, competitor gaps, and platform algorithms to architect a bespoke growth blueprint for your brand.</p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="glass-card rounded-xl p-6 flex flex-col relative overflow-hidden group hover:border-primary/50 transition-colors">
+<span class="material-symbols-outlined text-primary text-[32px] mb-4">forum</span>
+<h3 class="font-label-bold text-[20px] text-crisp-white mb-2 font-bold">Community Mgt</h3>
+<p class="font-body-md text-[14px] text-on-surface-variant">Active moderation, rapid response times, and fostering genuine dialogue to build brand loyalty.</p>
+</div>
+<!-- Item 3 -->
+<div class="glass-card rounded-xl p-6 flex flex-col relative overflow-hidden group hover:border-primary/50 transition-colors">
+<span class="material-symbols-outlined text-primary text-[32px] mb-4">campaign</span>
+<h3 class="font-label-bold text-[20px] text-crisp-white mb-2 font-bold">Influencer Collabs</h3>
+<p class="font-body-md text-[14px] text-on-surface-variant">Strategic partnerships with micro and macro influencers to amplify reach and credibility.</p>
+</div>
+<!-- Item 4 -->
+<div class="glass-card rounded-xl p-6 md:col-span-3 flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden group">
+<div class="flex-1">
+<span class="material-symbols-outlined text-primary text-[32px] mb-4">movie</span>
+<h3 class="font-headline-md text-[28px] text-crisp-white mb-2 font-bold">Short-Form Content</h3>
+<p class="font-body-md text-[16px] text-on-surface-variant max-w-2xl">Reels, TikToks, and Shorts that hack the algorithm. High-retention editing combined with trend-jacking concepts.</p>
+</div>
+<div class="flex gap-2">
+<span class="px-4 py-2 border border-glass-stroke rounded-full font-label-bold text-[12px] text-on-surface">TikTok</span>
+<span class="px-4 py-2 border border-glass-stroke rounded-full font-label-bold text-[12px] text-on-surface">Reels</span>
+<span class="px-4 py-2 border border-glass-stroke rounded-full font-label-bold text-[12px] text-on-surface">Shorts</span>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="px-margin-mobile md:px-section-padding max-w-container-max mx-auto mb-section-padding">
+<div class="glass-card rounded-2xl p-16 text-center relative overflow-hidden border-primary/20">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent"></div>
+<div class="relative z-10 flex flex-col items-center">
+<h2 class="font-headline-lg text-headline-lg text-crisp-white mb-6">Ready to dominate?</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mb-8">Stop posting into the void. Let's build a strategy that actually moves the needle.</p>
+<button class="font-label-bold text-label-bold text-pure-black bg-[#FF921C] px-8 py-4 rounded-DEFAULT glow-hover transition-all duration-300">
+                        Book Free Consultation
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="w-full py-section-padding px-margin-mobile md:px-section-padding flex flex-col md:flex-row justify-between gap-gutter bg-surface-container-lowest border-t border-glass-stroke flat">
+<div class="flex flex-col gap-4">
+<div class="font-headline-md text-headline-md font-bold text-on-surface">
+                YoBro Marketing
+            </div>
+<p class="font-body-md text-body-md text-on-secondary-fixed-variant max-w-xs">
+                © 2024 YoBro Marketing Agency. All rights reserved.
+            </p>
+</div>
+<div class="flex flex-wrap gap-x-8 gap-y-4 items-center">
+<a class="font-label-bold text-label-bold text-primary hover:text-primary-fixed transition-all duration-200 hover:translate-x-1 transition-transform" href="#">SMM</a>
+<a class="font-label-bold text-label-bold text-on-secondary-fixed-variant hover:text-primary-fixed transition-all duration-200 hover:translate-x-1 transition-transform" href="#">Content Creation</a>
+<a class="font-label-bold text-label-bold text-on-secondary-fixed-variant hover:text-primary-fixed transition-all duration-200 hover:translate-x-1 transition-transform" href="#">Lead Gen</a>
+<a class="font-label-bold text-label-bold text-on-secondary-fixed-variant hover:text-primary-fixed transition-all duration-200 hover:translate-x-1 transition-transform" href="#">Reel Editing</a>
+<a class="font-label-bold text-label-bold text-on-secondary-fixed-variant hover:text-primary-fixed transition-all duration-200 hover:translate-x-1 transition-transform" href="#">WhatsApp</a>
+<a class="font-label-bold text-label-bold text-on-secondary-fixed-variant hover:text-primary-fixed transition-all duration-200 hover:translate-x-1 transition-transform" href="#">Email</a>
+</div>
+</footer>
+
+
+
+
+
+
+</body></html>
