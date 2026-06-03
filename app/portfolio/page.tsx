@@ -24,9 +24,9 @@ export default function Page() {
 <span className="material-symbols-outlined" style={{ "fontVariationSettings": "'FILL' 1" }}>menu</span>
 </button>
 </nav>
-<main className="pt-32 md:pt-48 pb-section-padding px-margin-mobile md:px-0 max-w-container-max mx-auto">
+<main className="pt-24 md:pt-48 pb-16 md:pb-section-padding px-margin-mobile md:px-gutter max-w-container-max mx-auto">
 
-<section className="mb-section-padding text-center relative z-10">
+<section className="mb-12 md:mb-section-padding text-center relative z-10">
 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary-container/20 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
 <h1 className="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg mb-6 tracking-tighter">
                 Our Work <span className="text-primary text-glow">Speaks</span> Volumes.
@@ -43,21 +43,21 @@ export default function Page() {
 </div>
 </section>
 
-<section className="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-6 md:gap-gutter">
   {loading ? (
     <div className="md:col-span-12 text-center text-crisp-white py-12">Loading portfolio...</div>
   ) : (
     portfolio.map((item) => {
-      let gridClass = 'md:col-span-3';
+      let gridClass = 'col-span-1 md:col-span-3';
       let heightClass = 'h-[300px]';
       
       if (item.gridSize === 'large') {
-        gridClass = 'md:col-span-6';
+        gridClass = 'col-span-1 sm:col-span-2 md:col-span-6';
       } else if (item.gridSize === 'vertical-9-16') {
-        gridClass = 'md:col-span-3';
+        gridClass = 'col-span-1 md:col-span-3';
         heightClass = 'aspect-[9/16] h-auto';
       } else if (item.gridSize === 'wide-16-9') {
-        gridClass = 'md:col-span-6';
+        gridClass = 'col-span-1 sm:col-span-2 md:col-span-6';
         heightClass = 'aspect-video h-auto';
       }
       return (
@@ -100,7 +100,7 @@ export default function Page() {
   )}
 </section>
 
-<section className="mt-section-padding glass-panel p-16 rounded-2xl text-center relative overflow-hidden">
+<section className="mt-16 md:mt-section-padding glass-panel p-8 md:p-16 rounded-2xl text-center relative overflow-hidden">
 <div className="absolute inset-0 bg-gradient-to-r from-primary-container/5 to-tertiary-container/5"></div>
 <div className="relative z-10">
 <h2 className="font-headline-lg text-headline-lg mb-4">Ready to be our next success story?</h2>
