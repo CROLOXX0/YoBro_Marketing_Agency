@@ -33,7 +33,7 @@ export default function Page() {
 
 <main className="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
 
-<section className="py-12 md:py-section-padding text-center relative reveal">
+<section className="py-12 md:py-section-padding text-center relative">
 
 <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary-container rounded-full opacity-10 blur-[120px] pointer-events-none"></div>
 <h1 className="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-crisp-white mb-6 relative z-10">
@@ -44,7 +44,7 @@ export default function Page() {
             </p>
 </section>
 
-<section className="mb-12 md:mb-section-padding relative z-10 reveal">
+<section className="mb-12 md:mb-section-padding relative z-10">
 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-gutter">
 
 <div className="bg-surface-container border border-glass-stroke rounded-xl p-6 md:p-8 flex flex-col hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(255,146,28,0.1)] transition-all duration-300 relative">
@@ -173,7 +173,31 @@ export default function Page() {
 </div>
 </section>
 
-<section className="py-12 md:py-section-padding reveal">
+<section className="mb-12 md:mb-section-padding relative z-10">
+<div className="text-center mb-10">
+<h2 className="font-headline-md text-headline-md text-crisp-white mb-4">Add-On Services</h2>
+<p className="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto">Customize your package with these standalone power-ups.</p>
+</div>
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+{[
+  { title: "Extra Reel", price: "₹499" },
+  { title: "Extra Post Design", price: "₹249" },
+  { title: "Google Business Profile Setup", price: "₹1,499" },
+  { title: "WhatsApp Funnel Setup", price: "₹1,499" },
+  { title: "Landing Page Design", price: "₹2,499" },
+  { title: "Meta Ads Setup", price: "₹1,999" },
+  { title: "Meta Ads Management", price: "₹2,999/month" },
+  { title: "Logo Design", price: "₹1,999" },
+].map((addon, idx) => (
+  <div key={idx} className="glass-panel border border-glass-stroke p-6 rounded-xl flex flex-col justify-center items-center text-center hover:-translate-y-1 hover:border-primary/50 transition-all duration-300 hover:shadow-[0_0_15px_rgba(255,146,28,0.1)]">
+    <h4 className="font-body-md text-body-md text-crisp-white mb-2">{addon.title}</h4>
+    <div className="text-2xl font-bold text-primary">{addon.price}</div>
+  </div>
+))}
+</div>
+</section>
+
+<section className="py-12 md:py-section-padding">
 <div className="text-center mb-16">
 <h2 className="font-headline-lg text-headline-lg text-crisp-white mb-4">Beyond the Price Tag</h2>
 <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">We don't just run ads; we build revenue engines. Here's what comes standard with every tier.</p>

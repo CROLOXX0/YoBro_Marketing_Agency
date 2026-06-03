@@ -22,6 +22,12 @@ export const metadata: Metadata = {
   description: "High-impact marketing for brands that want to dominate.",
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{

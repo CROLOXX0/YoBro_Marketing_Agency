@@ -17,13 +17,7 @@ export default function Page() {
 
   return (
     <>
-      
-<nav className="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile py-4 bg-surface/90 backdrop-blur-xl border-b border-glass-stroke md:hidden">
-<a className="font-headline-md text-headline-md font-extrabold text-primary tracking-tighter text-[24px]" href="#">YoBro</a>
-<button className="text-crisp-white">
-<span className="material-symbols-outlined" style={{ "fontVariationSettings": "'FILL' 1" }}>menu</span>
-</button>
-</nav>
+
 <main className="pt-24 md:pt-48 pb-16 md:pb-section-padding px-margin-mobile md:px-gutter max-w-container-max mx-auto">
 
 <section className="mb-12 md:mb-section-padding text-center relative z-10">
