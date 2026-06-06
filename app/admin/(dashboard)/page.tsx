@@ -5,12 +5,19 @@ import Link from "next/link";
 
 export default function AdminDashboard() {
   const [leadsCount, setLeadsCount] = useState(0);
+  const [discountPercent, setDiscountPercent] = useState(10);
 
   useEffect(() => {
     fetch("/api/leads", { cache: 'no-store' })
       .then((res) => res.json())
       .then((data) => {
         if (data.leads) setLeadsCount(data.leads.length);
+      });
+      
+    fetch(`/api/settings?t=${Date.now()}`, { cache: 'no-store' })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.discountSettings) setDiscountPercent(data.discountSettings.percentage);
       });
   }, []);
 
@@ -56,7 +63,7 @@ export default function AdminDashboard() {
           </div>
           <div className="relative z-10">
              <h3 className="font-label-bold text-secondary uppercase text-[10px] tracking-widest mb-2">Global Discount</h3>
-             <p className="font-display-lg text-5xl font-extrabold text-primary">10%</p>
+             <p className="font-display-lg text-5xl font-extrabold text-primary">{discountPercent}%</p>
           </div>
         </Link>
       </div>
