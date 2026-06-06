@@ -1,8 +1,10 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function PricingAdminPage() {
+  const router = useRouter();
   const [pricing, setPricing] = useState<any>({});
   const [settings, setSettings] = useState<any>({ code: "", percentage: 10 });
   const [loading, setLoading] = useState(true);
@@ -46,6 +48,7 @@ export default function PricingAdminPage() {
         headers: { 'Content-Type': 'application/json' }
       });
       
+      router.refresh();
       setMessage("Saved successfully!");
       setTimeout(() => setMessage(""), 3000);
     } catch (err) {
