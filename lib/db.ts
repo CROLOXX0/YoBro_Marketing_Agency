@@ -20,7 +20,9 @@ export async function readDB() {
         code: "Yobro2026",
         percentage: 10
       },
-      portfolio: []
+      portfolio: [],
+      pages: [],
+      blogs: []
     };
   }
 }

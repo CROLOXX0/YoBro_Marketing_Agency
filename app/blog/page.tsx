@@ -1,48 +1,78 @@
-import { blogs } from "@/lib/blogs";
 import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Blog | Insights & Marketing Strategies",
-  description: "Read the latest insights, strategies, and tips on digital marketing, social media growth, and lead generation from the experts at YoBro Marketing.",
-  keywords: ["Marketing Blog", "Growth Tips", "Marketing Strategies", "Digital Marketing Insights"],
+  description: "Read the latest insights, strategies, and industry news from YoBro Marketing to scale your brand.",
+  keywords: ["Marketing Blog", "Social Media Tips", "Lead Generation Strategies", "YoBro Blog"],
 };
 
-export default function BlogIndex() {
+export const dynamic = 'force-dynamic';
+
+export default async function BlogIndex() {
+  let blogs = [];
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/api/blogs`, { cache: 'no-store' });
+    const data = await res.json();
+    blogs = data.blogs || [];
+  } catch(e) {}
+
   return (
-    <main className="pt-32 md:pt-48 pb-section-padding px-margin-mobile md:px-gutter max-w-container-max mx-auto min-h-screen">
-      <section className="text-center mb-16 relative z-10">
-        <h1 className="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg mb-6 text-crisp-white">
-          Our <span className="text-primary text-glow">Insights</span>
+    <main className="pt-32 md:pt-48 pb-16 md:pb-section-padding px-margin-mobile md:px-gutter max-w-container-max mx-auto min-h-screen">
+      <section className="mb-16 md:mb-24 text-center relative z-10">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary-container/10 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
+        <h1 className="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg mb-6 tracking-tighter text-crisp-white">
+          Our <span className="text-primary text-glow">Insights</span>.
         </h1>
         <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
-          Expert strategies, industry updates, and actionable tips to help you dominate your market.
+          Deep dives, strategies, and industry secrets to help you dominate your market.
         </p>
       </section>
 
-      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter relative z-10">
-        {blogs.map((blog) => (
-          <Link href={`/blog/${blog.slug}`} key={blog.id} className="group flex flex-col glass-panel rounded-xl overflow-hidden border border-glass-stroke hover:border-primary/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(255,146,28,0.1)]">
-            <div className="h-48 w-full overflow-hidden relative">
-              <img src={blog.image} alt={blog.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-              <div className="absolute top-4 left-4 bg-surface-container/80 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-crisp-white">
-                {new Date(blog.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {blogs.length === 0 ? (
+          <div className="col-span-full text-center py-12 text-on-surface-variant">
+            No blog posts available right now.
+          </div>
+        ) : (
+          blogs.map((post: any) => (
+            <Link href={`/blog/${post.slug}`} key={post.id} className="glass-card rounded-2xl overflow-hidden group hover:border-primary/50 transition-all flex flex-col h-full">
+              <div className="aspect-video relative overflow-hidden bg-surface-container-low">
+                {post.image ? (
+                  <img src={post.image} alt={post.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center">
+                    <span className="material-symbols-outlined text-4xl text-secondary/30">image</span>
+                  </div>
+                )}
+                <div className="absolute top-4 left-4 bg-pure-black/80 backdrop-blur-md px-3 py-1 rounded-full border border-glass-stroke">
+                  <span className="text-[10px] font-bold text-primary uppercase tracking-widest">{post.date}</span>
+                </div>
               </div>
-            </div>
-            <div className="p-6 flex flex-col flex-grow">
-              <h2 className="font-headline-md text-headline-md text-crisp-white mb-3 group-hover:text-primary transition-colors line-clamp-2">
-                {blog.title}
-              </h2>
-              <p className="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow line-clamp-3">
-                {blog.excerpt}
-              </p>
-              <div className="flex items-center justify-between mt-auto pt-4 border-t border-glass-stroke">
-                <span className="text-xs font-label-bold text-on-surface-variant uppercase tracking-wider">{blog.author}</span>
-                <span className="text-primary font-bold text-sm flex items-center gap-1 group-hover:gap-2 transition-all">Read More &rarr;</span>
+              <div className="p-6 flex flex-col flex-grow">
+                <div className="flex gap-2 mb-3 flex-wrap">
+                  {post.keywords?.slice(0, 2).map((keyword: string) => (
+                    <span key={keyword} className="text-[10px] uppercase font-bold text-secondary bg-surface-variant px-2 py-1 rounded-md">
+                      {keyword}
+                    </span>
+                  ))}
+                </div>
+                <h3 className="text-xl font-bold text-crisp-white mb-3 group-hover:text-primary transition-colors line-clamp-2">
+                  {post.title}
+                </h3>
+                <p className="text-sm text-on-surface-variant mb-6 line-clamp-3 flex-grow">
+                  {post.excerpt}
+                </p>
+                <div className="flex items-center justify-between mt-auto pt-4 border-t border-glass-stroke">
+                  <span className="text-xs font-bold text-crisp-white">{post.author}</span>
+                  <span className="text-xs font-bold text-primary flex items-center gap-1 group-hover:gap-2 transition-all">
+                    Read More <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                  </span>
+                </div>
               </div>
-            </div>
-          </Link>
-        ))}
+            </Link>
+          ))
+        )}
       </section>
     </main>
   );

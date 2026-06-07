@@ -1,81 +1,85 @@
-import { blogs } from "@/lib/blogs";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 
-// Dynamically generate metadata for each blog post
+export const dynamic = 'force-dynamic';
+
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const blog = blogs.find(b => b.slug === params.slug);
-  if (!blog) return { title: 'Post Not Found' };
+  let blogs = [];
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/api/blogs`, { cache: 'no-store' });
+    const data = await res.json();
+    blogs = data.blogs || [];
+  } catch(e) {}
+
+  const post = blogs.find((p: any) => p.slug === params.slug);
+
+  if (!post) {
+    return {
+      title: "Post Not Found",
+    };
+  }
 
   return {
-    title: `${blog.title} | YoBro Blog`,
-    description: blog.excerpt,
-    keywords: blog.keywords,
-    openGraph: {
-      title: blog.title,
-      description: blog.excerpt,
-      images: [{ url: blog.image }],
-      type: "article",
-      publishedTime: blog.date,
-      authors: [blog.author],
-    }
+    title: `${post.title} | YoBro Marketing Blog`,
+    description: post.excerpt,
+    keywords: post.keywords,
   };
 }
 
-// Generate static paths for all blogs at build time
-export function generateStaticParams() {
-  return blogs.map((blog) => ({
-    slug: blog.slug,
-  }));
-}
+export default async function BlogPost({ params }: { params: { slug: string } }) {
+  let blogs = [];
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/api/blogs`, { cache: 'no-store' });
+    const data = await res.json();
+    blogs = data.blogs || [];
+  } catch(e) {}
 
-export default function BlogPost({ params }: { params: { slug: string } }) {
-  const blog = blogs.find(b => b.slug === params.slug);
+  const post = blogs.find((p: any) => p.slug === params.slug);
 
-  if (!blog) {
+  if (!post) {
     notFound();
   }
 
   return (
-    <main className="pt-32 md:pt-48 pb-section-padding px-margin-mobile md:px-gutter max-w-3xl mx-auto min-h-screen">
+    <main className="pt-24 md:pt-32 pb-16 md:pb-section-padding px-margin-mobile md:px-gutter max-w-3xl mx-auto min-h-screen">
+      
       <div className="mb-8">
-        <Link href="/blog" className="text-primary hover:text-primary/80 font-bold flex items-center gap-2 transition-colors">
-          &larr; Back to Blog
+        <Link href="/blog" className="inline-flex items-center gap-2 text-sm font-bold text-secondary hover:text-primary transition-colors">
+          <span className="material-symbols-outlined text-sm">arrow_back</span>
+          Back to Insights
         </Link>
       </div>
 
-      <article className="glass-panel p-6 md:p-12 rounded-2xl border border-glass-stroke relative z-10">
-        <div className="flex items-center gap-4 text-sm text-on-surface-variant font-label-bold uppercase tracking-wider mb-6">
-          <span>{new Date(blog.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
-          <span className="w-1 h-1 rounded-full bg-primary"></span>
-          <span>{blog.author}</span>
-        </div>
+      <article>
+        <header className="mb-10 text-center">
+          <div className="flex gap-2 justify-center mb-6 flex-wrap">
+            {post.keywords?.map((keyword: string) => (
+              <span key={keyword} className="text-[10px] uppercase font-bold text-secondary bg-surface-variant px-3 py-1.5 rounded-full border border-glass-stroke">
+                {keyword}
+              </span>
+            ))}
+          </div>
+          <h1 className="text-3xl md:text-5xl font-display-lg text-crisp-white mb-6 leading-tight">
+            {post.title}
+          </h1>
+          <div className="flex items-center justify-center gap-4 text-sm text-on-surface-variant font-bold">
+            <span className="text-primary">{post.author}</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-glass-stroke"></span>
+            <span>{post.date}</span>
+          </div>
+        </header>
 
-        <h1 className="font-display-lg-mobile text-display-lg-mobile md:text-5xl font-extrabold text-crisp-white mb-8 leading-tight">
-          {blog.title}
-        </h1>
+        {post.image && (
+          <div className="aspect-video w-full rounded-2xl overflow-hidden mb-12 border border-glass-stroke">
+            <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
+          </div>
+        )}
 
-        <div className="w-full h-64 md:h-96 rounded-xl overflow-hidden mb-10">
-          <img src={blog.image} alt={blog.title} className="w-full h-full object-cover" />
-        </div>
-
-        <div className="prose prose-invert prose-lg max-w-none 
-          [&>h3]:text-crisp-white [&>h3]:font-bold [&>h3]:mb-4 [&>h3]:mt-8 [&>h3]:text-2xl
-          [&>p]:text-on-surface-variant [&>p]:mb-6 [&>p]:leading-relaxed
-          [&>ul]:text-on-surface-variant [&>ul]:mb-6 [&>ul]:list-disc [&>ul]:pl-5 [&>ul>li]:mb-2
-          [&>ol]:text-on-surface-variant [&>ol]:mb-6 [&>ol]:list-decimal [&>ol]:pl-5 [&>ol>li]:mb-2
-          [&_strong]:text-crisp-white [&_strong]:font-bold"
-          dangerouslySetInnerHTML={{ __html: blog.content }}>
-        </div>
-
-        <div className="mt-12 pt-8 border-t border-glass-stroke flex flex-wrap gap-2">
-          {blog.keywords.map((keyword, i) => (
-            <span key={i} className="px-3 py-1 bg-surface-container rounded-full text-xs text-on-surface-variant border border-glass-stroke">
-              #{keyword}
-            </span>
-          ))}
-        </div>
+        <div 
+          className="prose prose-invert prose-lg prose-p:text-on-surface-variant prose-headings:text-crisp-white prose-a:text-primary hover:prose-a:text-primary/80 max-w-none"
+          dangerouslySetInnerHTML={{ __html: post.content }}
+        />
       </article>
       
       <section className="mt-16 text-center">

@@ -12,6 +12,8 @@ export default function AdminNav() {
     { name: "Leads", href: "/admin/leads", icon: "group_add" },
     { name: "Pricing CMS", href: "/admin/pricing", icon: "sell" },
     { name: "Portfolio CMS", href: "/admin/portfolio", icon: "work" },
+    { name: "Custom Pages CMS", href: "/admin/pages", icon: "article" },
+    { name: "Blogs CMS", href: "/admin/blogs", icon: "book" },
   ];
 
   return (
