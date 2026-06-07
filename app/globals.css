@@ -5,7 +5,9 @@
   --on-secondary-fixed-variant: #b8b9b9;
   --surface-tint: #004884;
   --on-error: #96fffa;
-  --crisp-white: #ffffff;
+  --crisp-white: #000000;
+  --adaptive-white: #000000;
+  --glass-rgb: 0, 0, 0;
   --on-background: #212529;
   --on-secondary-container: #1c1b1b;
   --on-secondary-fixed: #e3e4e4;
@@ -60,6 +62,8 @@
   --surface-tint: #ffb77b;
   --on-error: #690005;
   --crisp-white: #FFFFFF;
+  --adaptive-white: #FFFFFF;
+  --glass-rgb: 255, 255, 255;
   --on-background: #e5e2e1;
   --on-secondary-container: #bab8b7;
   --on-secondary-fixed: #1c1b1b;
@@ -109,6 +113,7 @@
 }
 
 @theme {
+  --color-white: var(--adaptive-white);
   --color-secondary-fixed: var(--secondary-fixed);
   --color-on-secondary-fixed-variant: var(--on-secondary-fixed-variant);
   --color-surface-tint: var(--surface-tint);
@@ -195,11 +200,11 @@ body {
 
 @layer utilities {
   .glass-card {
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(var(--glass-rgb), 0.03);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid rgba(var(--glass-rgb), 0.1);
+    border-bottom: 1px solid rgba(var(--glass-rgb), 0.05);
     position: relative;
     overflow: hidden;
   }
