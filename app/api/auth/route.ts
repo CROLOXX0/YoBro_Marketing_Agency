@@ -36,3 +36,13 @@ export async function GET() {
     return NextResponse.json({ authenticated: false }, { status: 401 });
   }
 }
+
+export async function DELETE() {
+  try {
+    const cookieStore = await cookies();
+    cookieStore.delete('admin_session');
+    return NextResponse.json({ success: true });
+  } catch (error) {
+    return NextResponse.json({ success: false }, { status: 500 });
+  }
+}
