@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 export default function Page() {
   const [portfolio, setPortfolio] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  const [activeCategory, setActiveCategory] = useState("All Work");
 
   useEffect(() => {
     fetch('/api/portfolio')
@@ -14,6 +15,14 @@ export default function Page() {
         setLoading(false);
       });
   }, []);
+
+  const categories = ["All Work", "Social Media", "Video Production", "Brand Identity"];
+
+  const filteredPortfolio = portfolio.filter(item => {
+    if (activeCategory === "All Work") return true;
+    if (!item.categories || item.categories.length === 0) return false;
+    return item.categories.some((c: string) => c.toLowerCase().includes(activeCategory.toLowerCase()));
+  });
 
   return (
     <>
@@ -30,18 +39,25 @@ export default function Page() {
             </p>
 
 <div className="flex flex-wrap justify-center gap-4">
-<button className="px-5 py-2 rounded-full border border-primary text-primary bg-primary/10 font-label-bold text-label-bold transition-colors">All Work</button>
-<button className="px-5 py-2 rounded-full border border-glass-stroke text-on-surface-variant hover:border-primary/50 hover:text-primary transition-colors font-label-bold text-label-bold">Social Media</button>
-<button className="px-5 py-2 rounded-full border border-glass-stroke text-on-surface-variant hover:border-primary/50 hover:text-primary transition-colors font-label-bold text-label-bold">Video Production</button>
-<button className="px-5 py-2 rounded-full border border-glass-stroke text-on-surface-variant hover:border-primary/50 hover:text-primary transition-colors font-label-bold text-label-bold">Brand Identity</button>
+  {categories.map(cat => (
+    <button 
+      key={cat}
+      onClick={() => setActiveCategory(cat)}
+      className={`px-5 py-2 rounded-full border font-label-bold text-label-bold transition-colors ${activeCategory === cat ? 'border-primary text-primary bg-primary/10' : 'border-glass-stroke text-on-surface-variant hover:border-primary/50 hover:text-primary'}`}
+    >
+      {cat}
+    </button>
+  ))}
 </div>
 </section>
 
 <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-6 md:gap-gutter">
   {loading ? (
     <div className="md:col-span-12 text-center text-crisp-white py-12">Loading portfolio...</div>
+  ) : filteredPortfolio.length === 0 ? (
+    <div className="md:col-span-12 text-center text-on-surface-variant py-12 border border-dashed border-glass-stroke rounded-xl">No projects found for this category.</div>
   ) : (
-    portfolio.map((item) => {
+    filteredPortfolio.map((item) => {
       let gridClass = 'col-span-1 md:col-span-3';
       let heightClass = 'h-[300px]';
       
