@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import RedeemButton from "./RedeemButton";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import ThemeToggle from "./ThemeToggle";
 
 export default function SiteHeader() {
   const pathname = usePathname();
@@ -34,6 +35,7 @@ export default function SiteHeader() {
           <RedeemButton />
         </nav>
         <div className="hidden lg:flex items-center gap-4 flex-shrink-0">
+          <ThemeToggle />
           <a href="/pricing" className="px-6 py-2 border border-glass-stroke bg-white/5 rounded-full font-label-bold text-label-bold text-crisp-white hover:bg-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-md block whitespace-nowrap">View Packages</a>
           <a href="https://wa.me/918510062139" target="_blank" rel="noopener noreferrer" className="px-6 py-2 bg-primary-container rounded-full font-label-bold text-label-bold text-pure-black btn-glow transition-all duration-300 hover:scale-105 block whitespace-nowrap">Book Free Consultation</a>
         </div>
@@ -58,7 +60,9 @@ export default function SiteHeader() {
         </a>
 
         {/* Right Side (Spacer for centering) */}
-        <div className="flex-1 flex justify-end"></div>
+        <div className="flex-1 flex justify-end">
+          <ThemeToggle />
+        </div>
       </header>
 
       {/* Mobile Menu Overlay */}
