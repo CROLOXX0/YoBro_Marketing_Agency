@@ -1,3 +1,10 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Social Media Management | Services",
+  description: "End-to-end strategy, posting, and community engagement to build a loyal audience and dominate social media.",
+  keywords: ["Social Media Management Services", "Instagram Growth", "Brand Building", "Facebook Management"],
+};
 
 export default function Page() {
   return (

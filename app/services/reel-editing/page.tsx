@@ -1,3 +1,10 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Reel & Short-Form Video Editing | Services",
+  description: "High-retention, trend-driven short-form content that converts viewers to followers. Expert Reel & TikTok editing.",
+  keywords: ["Short-form Video Editing", "Instagram Reels Editor", "TikTok Video Production", "Video Editing Agency"],
+};
 
 export default function Page() {
   return (

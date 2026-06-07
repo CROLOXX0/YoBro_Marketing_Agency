@@ -19,8 +19,26 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "YoBro Marketing Agency",
-  description: "High-impact marketing for brands that want to dominate.",
+  metadataBase: new URL('https://webeesocial.com'), // Using reference URL provided
+  title: {
+    default: "YoBro | Creative Digital Marketing Agency",
+    template: "%s | YoBro Marketing"
+  },
+  description: "YoBro is a creative digital marketing & Social Media agency offering 360° digital solutions, lead generation, and high-impact content creation.",
+  keywords: ["Digital Marketing Agency", "Social Media Management", "Lead Generation", "Content Creation", "Reel Editing", "SEO", "Marketing Agency India"],
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "/",
+    title: "YoBro | Creative Digital Marketing Agency",
+    description: "High-impact marketing for brands that want to dominate. Social media, lead gen, and content creation.",
+    siteName: "YoBro Marketing",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "YoBro | Creative Digital Marketing Agency",
+    description: "High-impact marketing for brands that want to dominate.",
+  },
 };
 
 export const viewport = {

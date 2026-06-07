@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 
-export default function Page() {
+export const metadata: Metadata = {
+  title: "Content Creation & Lead Gen | Services",
+  description: "High-retention, trend-driven short-form content and targeted campaigns designed to flood your pipeline with qualified prospects.",
+  keywords: ["B2B Lead Generation", "Content Marketing Strategy", "Content Creation Agency", "Qualified Prospects"],
+};
+
+export default function ContentLeadGenService() {
   return (
     <>
       

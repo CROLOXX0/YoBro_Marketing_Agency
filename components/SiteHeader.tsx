@@ -31,6 +31,7 @@ export default function SiteHeader() {
           <a className="px-5 py-2 border border-glass-stroke bg-white/5 rounded-full font-label-bold text-label-bold text-on-surface-variant hover:bg-white/10 hover:text-crisp-white transition-all duration-300 backdrop-blur-md whitespace-nowrap" href="/#services">Services</a>
           <a className="px-5 py-2 border border-glass-stroke bg-white/5 rounded-full font-label-bold text-label-bold text-on-surface-variant hover:bg-white/10 hover:text-crisp-white transition-all duration-300 backdrop-blur-md whitespace-nowrap" href="/pricing">Pricing</a>
           <a className="px-5 py-2 border border-glass-stroke bg-white/5 rounded-full font-label-bold text-label-bold text-on-surface-variant hover:bg-white/10 hover:text-crisp-white transition-all duration-300 backdrop-blur-md whitespace-nowrap" href="/portfolio">Portfolio</a>
+          <a className="px-5 py-2 border border-glass-stroke bg-white/5 rounded-full font-label-bold text-label-bold text-on-surface-variant hover:bg-white/10 hover:text-crisp-white transition-all duration-300 backdrop-blur-md whitespace-nowrap" href="/blog">Blog</a>
           <a className="px-5 py-2 border border-glass-stroke bg-white/5 rounded-full font-label-bold text-label-bold text-on-surface-variant hover:bg-white/10 hover:text-crisp-white transition-all duration-300 backdrop-blur-md whitespace-nowrap" href="/faq">FAQ</a>
           <RedeemButton />
         </nav>
@@ -79,6 +80,7 @@ export default function SiteHeader() {
               <a className="font-headline-md text-headline-md text-crisp-white hover:text-primary transition-colors py-2" href="/#services" onClick={() => setIsMobileMenuOpen(false)}>Services</a>
               <a className="font-headline-md text-headline-md text-crisp-white hover:text-primary transition-colors py-2" href="/pricing" onClick={() => setIsMobileMenuOpen(false)}>Pricing</a>
               <a className="font-headline-md text-headline-md text-crisp-white hover:text-primary transition-colors py-2" href="/portfolio" onClick={() => setIsMobileMenuOpen(false)}>Portfolio</a>
+              <a className="font-headline-md text-headline-md text-crisp-white hover:text-primary transition-colors py-2" href="/blog" onClick={() => setIsMobileMenuOpen(false)}>Blog</a>
               <a className="font-headline-md text-headline-md text-crisp-white hover:text-primary transition-colors py-2" href="/faq" onClick={() => setIsMobileMenuOpen(false)}>FAQ</a>
             </nav>
             <div className="h-px w-full bg-glass-stroke my-2"></div>
