@@ -5,7 +5,6 @@ export const metadata: Metadata = {
   description: "End-to-end strategy, posting, and community engagement to build a loyal audience and dominate social media.",
   keywords: ["Social Media Management Services", "Instagram Growth", "Brand Building", "Facebook Management"],
 };
-import type { Metadata } from "next";
 import ScrollReveal from "@/components/ScrollReveal";
 
 export default function Page() {

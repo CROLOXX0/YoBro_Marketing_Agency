@@ -5,7 +5,6 @@ export const metadata: Metadata = {
   description: "High-retention, trend-driven short-form content that converts viewers to followers. Expert Reel & TikTok editing.",
   keywords: ["Short-form Video Editing", "Instagram Reels Editor", "TikTok Video Production", "Video Editing Agency"],
 };
-import type { Metadata } from "next";
 import ScrollReveal from "@/components/ScrollReveal";
 
 export default function Page() {

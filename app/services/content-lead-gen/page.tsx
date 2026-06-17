@@ -5,7 +5,6 @@ export const metadata: Metadata = {
   description: "High-retention, trend-driven short-form content and targeted campaigns designed to flood your pipeline with qualified prospects.",
   keywords: ["B2B Lead Generation", "Content Marketing Strategy", "Content Creation Agency", "Qualified Prospects"],
 };
-import type { Metadata } from "next";
 import ScrollReveal from "@/components/ScrollReveal";
 
 export default function ContentLeadGenService() {
