@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --secondary-fixed: #1a1d1e;
   --on-secondary-fixed-variant: #b8b9b9;

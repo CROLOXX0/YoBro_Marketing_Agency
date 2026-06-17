@@ -2,6 +2,7 @@ import ParticleCanvas from "@/components/ParticleCanvas";
 import GlassCard from "@/components/GlassCard";
 import ScrollReveal from "@/components/ScrollReveal";
 import RadarServices from "@/components/RadarServices";
+import ContactForm from "@/components/ContactForm";
 
 export default function Home() {
   return (
@@ -127,6 +128,9 @@ export default function Home() {
           </div>
         </ScrollReveal>
       </section>
+
+      {/* Contact Form Section */}
+      <ContactForm />
     </>
   );
 }

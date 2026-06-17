@@ -61,7 +61,7 @@ export default function RootLayout({
       <head>
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
       </head>
-      <body className="bg-pure-black text-on-surface font-body-md text-body-md overflow-x-hidden selection:bg-primary-container selection:text-pure-black flex flex-col min-h-screen">
+      <body className="bg-background text-on-surface font-body-md text-body-md overflow-x-hidden selection:bg-primary-container selection:text-pure-black flex flex-col min-h-screen">
         <AILoader />
         <SmoothScroll>
           <Providers>
