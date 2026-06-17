@@ -26,7 +26,7 @@ export default function Home() {
 
       {/* Hero Section */}
       <section
-        className="relative min-h-screen flex items-center justify-center pt-32 pb-section-padding overflow-hidden"
+        className="relative min-h-[90vh] flex items-center justify-center pt-24 md:pt-16 pb-section-padding overflow-hidden"
         id="hero"
       >
         <div className="orb bg-primary-container w-[600px] h-[600px] top-[-200px] right-[-200px]"></div>
@@ -34,22 +34,28 @@ export default function Home() {
         
         <ParticleCanvas />
 
-        <div className="relative z-10 container mx-auto px-margin-mobile md:px-section-padding text-center max-w-container-max hero-text-content">
-          <h1 className="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-crisp-white mb-8 max-w-4xl mx-auto">
-            Scale Your Brand with{" "}
-            <span className="text-primary-container">High-Impact</span>{" "}
-            Marketing.
-          </h1>
-          <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-12">
-            We specialize in social media growth, lead generation, and premium
-            content creation for brands that want to dominate.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 hero-float">
-            <a href="https://wa.me/918510062139?text=Hi%20YoBro%20Marketing%20Team%2C%0A%0AI%20would%20like%20to%20book%20a%20FREE%20marketing%20consultation%20for%20my%20business.%0A%0ABusiness%20Name%3A%0ABusiness%20Type%3A%0ACurrent%20Social%20Media%20Pages%3A%0AMain%20Goal%20(More%20Leads%20%2F%20More%20Customers%20%2F%20Brand%20Awareness)%3A%0A%0APlease%20let%20me%20know%20the%20available%20time%20slots.%0A%0AThank%20you." target="_blank" rel="noopener noreferrer" className="px-8 py-4 bg-primary-container rounded-full font-label-bold text-label-bold text-pure-black btn-glow transition-all duration-300 hover:scale-105 inline-block">Book Free Consultation</a>
-            <a href="/pricing" className="w-full sm:w-auto px-8 py-4 border border-glass-stroke rounded-full font-label-bold text-label-bold text-crisp-white hover:bg-crisp-white hover:text-pure-black transition-all duration-300 inline-block text-center">
-              View Packages
-            </a>
-          </div>
+        <div className="relative z-10 container mx-auto px-margin-mobile md:px-section-padding text-center max-w-container-max hero-text-content -mt-16">
+          <ScrollReveal delay={0.1} direction="left">
+            <h1 className="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-crisp-white mb-8 max-w-4xl mx-auto">
+              Scale Your Brand with{" "}
+              <span className="text-primary-container">High-Impact</span>{" "}
+              Marketing.
+            </h1>
+          </ScrollReveal>
+          <ScrollReveal delay={0.2} direction="left">
+            <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-12">
+              We specialize in social media growth, lead generation, and premium
+              content creation for brands that want to dominate.
+            </p>
+          </ScrollReveal>
+          <ScrollReveal delay={0.3} direction="right">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 hero-float">
+              <a href="https://wa.me/918510062139?text=Hi%20YoBro%20Marketing%20Team%2C%0A%0AI%20would%20like%20to%20book%20a%20FREE%20marketing%20consultation%20for%20my%20business.%0A%0ABusiness%20Name%3A%0ABusiness%20Type%3A%0ACurrent%20Social%20Media%20Pages%3A%0AMain%20Goal%20(More%20Leads%20%2F%20More%20Customers%20%2F%20Brand%20Awareness)%3A%0A%0APlease%20let%20me%20know%20the%20available%20time%20slots.%0A%0AThank%20you." target="_blank" rel="noopener noreferrer" className="px-8 py-4 bg-primary-container rounded-full font-label-bold text-label-bold text-pure-black btn-glow transition-all duration-300 hover:scale-105 inline-block">Book Free Consultation</a>
+              <a href="/pricing" className="w-full sm:w-auto px-8 py-4 border border-glass-stroke rounded-full font-label-bold text-label-bold text-crisp-white hover:bg-crisp-white hover:text-pure-black transition-all duration-300 inline-block text-center">
+                View Packages
+              </a>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -71,59 +77,65 @@ export default function Home() {
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter mt-16">
               {/* Service Card 1 */}
-              <GlassCard className="rounded-xl p-8 hover:-translate-y-3 transition-all duration-500 group shadow-lg hover:shadow-primary-container/10">
-                <div className="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center mb-6 text-primary-container group-hover:bg-primary-container group-hover:text-pure-black transition-colors">
-                  <span
-                    className="material-symbols-outlined"
-                    style={{ fontVariationSettings: "'FILL' 1" }}
-                  >
-                    campaign
-                  </span>
-                </div>
-                <h3 className="font-headline-md text-headline-md text-crisp-white mb-3 text-[24px]">
-                  Social Media Management
-                </h3>
-                <p className="font-body-md text-body-md text-on-surface-variant">
-                  End-to-end strategy, posting, and community engagement to
-                  build a loyal audience.
-                </p>
-              </GlassCard>
+              <ScrollReveal delay={0.1}>
+                <GlassCard className="rounded-xl p-8 hover:-translate-y-3 transition-all duration-500 group shadow-lg hover:shadow-primary-container/10 h-full">
+                  <div className="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center mb-6 text-primary-container group-hover:bg-primary-container group-hover:text-pure-black transition-colors">
+                    <span
+                      className="material-symbols-outlined"
+                      style={{ fontVariationSettings: "'FILL' 1" }}
+                    >
+                      campaign
+                    </span>
+                  </div>
+                  <h3 className="font-headline-md text-headline-md text-crisp-white mb-3 text-[24px]">
+                    Social Media Management
+                  </h3>
+                  <p className="font-body-md text-body-md text-on-surface-variant">
+                    End-to-end strategy, posting, and community engagement to
+                    build a loyal audience.
+                  </p>
+                </GlassCard>
+              </ScrollReveal>
               {/* Service Card 2 */}
-              <GlassCard className="rounded-xl p-8 hover:-translate-y-3 transition-all duration-500 group shadow-lg hover:shadow-primary-container/10">
-                <div className="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center mb-6 text-primary-container group-hover:bg-primary-container group-hover:text-pure-black transition-colors">
-                  <span
-                    className="material-symbols-outlined"
-                    style={{ fontVariationSettings: "'FILL' 1" }}
-                  >
-                    movie
-                  </span>
-                </div>
-                <h3 className="font-headline-md text-headline-md text-crisp-white mb-3 text-[24px]">
-                  Content Creation & Reel Editing
-                </h3>
-                <p className="font-body-md text-body-md text-on-surface-variant">
-                  High-retention, trend-driven short-form content that converts
-                  viewers to followers.
-                </p>
-              </GlassCard>
+              <ScrollReveal delay={0.2}>
+                <GlassCard className="rounded-xl p-8 hover:-translate-y-3 transition-all duration-500 group shadow-lg hover:shadow-primary-container/10 h-full">
+                  <div className="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center mb-6 text-primary-container group-hover:bg-primary-container group-hover:text-pure-black transition-colors">
+                    <span
+                      className="material-symbols-outlined"
+                      style={{ fontVariationSettings: "'FILL' 1" }}
+                    >
+                      movie
+                    </span>
+                  </div>
+                  <h3 className="font-headline-md text-headline-md text-crisp-white mb-3 text-[24px]">
+                    Content Creation & Reel Editing
+                  </h3>
+                  <p className="font-body-md text-body-md text-on-surface-variant">
+                    High-retention, trend-driven short-form content that converts
+                    viewers to followers.
+                  </p>
+                </GlassCard>
+              </ScrollReveal>
               {/* Service Card 3 */}
-              <GlassCard className="rounded-xl p-8 hover:-translate-y-3 transition-all duration-500 group shadow-lg hover:shadow-primary-container/10">
-                <div className="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center mb-6 text-primary-container group-hover:bg-primary-container group-hover:text-pure-black transition-colors">
-                  <span
-                    className="material-symbols-outlined"
-                    style={{ fontVariationSettings: "'FILL' 1" }}
-                  >
-                    trending_up
-                  </span>
-                </div>
-                <h3 className="font-headline-md text-headline-md text-crisp-white mb-3 text-[24px]">
-                  Lead Generation
-                </h3>
-                <p className="font-body-md text-body-md text-on-surface-variant">
-                  Targeted campaigns designed to flood your pipeline with
-                  qualified prospects.
-                </p>
-              </GlassCard>
+              <ScrollReveal delay={0.3}>
+                <GlassCard className="rounded-xl p-8 hover:-translate-y-3 transition-all duration-500 group shadow-lg hover:shadow-primary-container/10 h-full">
+                  <div className="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center mb-6 text-primary-container group-hover:bg-primary-container group-hover:text-pure-black transition-colors">
+                    <span
+                      className="material-symbols-outlined"
+                      style={{ fontVariationSettings: "'FILL' 1" }}
+                    >
+                      trending_up
+                    </span>
+                  </div>
+                  <h3 className="font-headline-md text-headline-md text-crisp-white mb-3 text-[24px]">
+                    Lead Generation
+                  </h3>
+                  <p className="font-body-md text-body-md text-on-surface-variant">
+                    Targeted campaigns designed to flood your pipeline with
+                    qualified prospects.
+                  </p>
+                </GlassCard>
+              </ScrollReveal>
             </div>
           </div>
         </ScrollReveal>
