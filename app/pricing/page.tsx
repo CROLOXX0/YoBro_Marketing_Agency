@@ -35,7 +35,7 @@ export default function Page() {
 <main className="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
 
 <ScrollReveal delay={0.1}>
-  <section className="py-12 md:py-section-padding text-center relative">
+  <section className="py-12 md:py-section-padding text-center relative overflow-hidden">
 
   <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary-container rounded-full opacity-10 blur-[120px] pointer-events-none"></div>
   <h1 className="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-crisp-white mb-6 relative z-10">

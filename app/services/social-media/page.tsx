@@ -16,7 +16,7 @@ export default function Page() {
 <main className="pt-[100px]">
 
 <ScrollReveal delay={0.1}>
-  <section className="min-h-[819px] flex flex-col justify-center px-margin-mobile md:px-section-padding max-w-container-max mx-auto relative mb-section-padding pt-20">
+  <section className="min-h-[819px] flex flex-col justify-center px-margin-mobile md:px-section-padding max-w-container-max mx-auto relative mb-section-padding pt-20 overflow-hidden">
 
   <div className="absolute top-1/4 right-1/4 w-[400px] h-[400px] bg-primary-container rounded-full blur-[150px] opacity-20 pointer-events-none"></div>
   <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-tertiary rounded-full blur-[120px] opacity-10 pointer-events-none"></div>

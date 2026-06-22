@@ -9,6 +9,7 @@ interface ScrollRevealProps {
   threshold?: number;
   delay?: number;
   direction?: "up" | "down" | "left" | "right" | "none";
+  animateOnLoad?: boolean;
 }
 
 export default function ScrollReveal({
@@ -17,17 +18,26 @@ export default function ScrollReveal({
   threshold = 0.1,
   delay = 0,
   direction = "up",
+  animateOnLoad = false,
 }: ScrollRevealProps) {
-  let initial = { opacity: 0, scale: 0.95, x: 0, y: 0 };
-  if (direction === "up") initial.y = 50;
-  else if (direction === "down") initial.y = -50;
-  else if (direction === "left") initial.x = -50;
-  else if (direction === "right") initial.x = 50;
+  const getVariants = () => {
+    switch(direction) {
+      case "up": return { hidden: { opacity: 0, y: 50, scale: 0.95 }, visible: { opacity: 1, y: 0, scale: 1 } };
+      case "down": return { hidden: { opacity: 0, y: -50, scale: 0.95 }, visible: { opacity: 1, y: 0, scale: 1 } };
+      case "left": return { hidden: { opacity: 0, x: -50, scale: 0.95 }, visible: { opacity: 1, x: 0, scale: 1 } };
+      case "right": return { hidden: { opacity: 0, x: 50, scale: 0.95 }, visible: { opacity: 1, x: 0, scale: 1 } };
+      case "none": return { hidden: { opacity: 0, scale: 0.95 }, visible: { opacity: 1, scale: 1 } };
+      default: return { hidden: { opacity: 0, y: 50, scale: 0.95 }, visible: { opacity: 1, y: 0, scale: 1 } };
+    }
+  };
+
+  const currentVariants = getVariants();
 
   return (
     <motion.div
-      initial={initial}
-      whileInView={{ opacity: 1, x: 0, y: 0, scale: 1 }}
+      variants={currentVariants}
+      initial="hidden"
+      {...(animateOnLoad ? { animate: "visible" } : { whileInView: "visible" })}
       viewport={{ once: true, amount: threshold, margin: "0px 0px -50px 0px" }}
       transition={{
         duration: 1.2,

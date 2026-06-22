@@ -9,55 +9,71 @@ export default function GlobalInteractivity() {
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    // Scroll Reveal Observer
+    // Scroll Reveal Observer for fade-in-up
     let observer: IntersectionObserver | null = null;
     if (!prefersReducedMotion) {
       observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
-              entry.target.classList.add("active");
+              entry.target.classList.add("visible");
               if (observer) observer.unobserve(entry.target);
             }
           });
         },
         {
           threshold: 0.1,
-          rootMargin: "0px 0px -50px 0px",
+          rootMargin: "0px",
         }
       );
 
-      document.querySelectorAll(".reveal").forEach((el) => {
-        // Reset active class when route changes so it animates again if needed
-        // el.classList.remove("active");
+      document.querySelectorAll(".fade-in-up").forEach((el) => {
         if (observer) observer.observe(el);
       });
     } else {
-      document.querySelectorAll(".reveal").forEach((el) => el.classList.add("active"));
+      document.querySelectorAll(".fade-in-up").forEach((el) => el.classList.add("visible"));
     }
 
-    // Glass Card Mouse Tracking Glow
-    const handleMouseMove = (e: MouseEvent) => {
-      const card = e.currentTarget as HTMLElement;
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      card.style.setProperty("--mouse-x", `${x}px`);
-      card.style.setProperty("--mouse-y", `${y}px`);
+    // Magnetic Buttons
+    const handleMagneticMove = (e: MouseEvent) => {
+      const btn = e.currentTarget as HTMLElement;
+      const rect = btn.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+    };
+    
+    const handleMagneticLeave = (e: MouseEvent) => {
+      const btn = e.currentTarget as HTMLElement;
+      btn.style.transform = 'translate(0px, 0px)';
     };
 
-    const cards = document.querySelectorAll(".glass-card");
-    cards.forEach((card) => {
-      card.addEventListener("mousemove", handleMouseMove as EventListener);
+    const magneticBtns = document.querySelectorAll(".magnetic-btn");
+    magneticBtns.forEach((btn) => {
+      btn.addEventListener("mousemove", handleMagneticMove as EventListener);
+      btn.addEventListener("mouseleave", handleMagneticLeave as EventListener);
     });
+
+    // Ambient Glow
+    const handleAmbientGlow = (e: MouseEvent) => {
+      const ambientGlow = document.getElementById('ambientGlow');
+      if (ambientGlow) {
+        const x = (e.clientX / window.innerWidth) * 100;
+        const y = (e.clientY / window.innerHeight) * 100;
+        ambientGlow.style.background = `radial-gradient(circle at ${x}% ${y}%, rgba(173,198,255,0.05) 0%, transparent 40%)`;
+      }
+    };
+    document.addEventListener('mousemove', handleAmbientGlow);
 
     return () => {
       if (observer) observer.disconnect();
-      cards.forEach((card) => {
-        card.removeEventListener("mousemove", handleMouseMove as EventListener);
+      magneticBtns.forEach((btn) => {
+        btn.removeEventListener("mousemove", handleMagneticMove as EventListener);
+        btn.removeEventListener("mouseleave", handleMagneticLeave as EventListener);
       });
+      document.removeEventListener('mousemove', handleAmbientGlow);
     };
-  }, [pathname]); // Re-run when pathname changes
+  }, [pathname]);
 
-  return null;
+  return <div className="ambient-glow" id="ambientGlow"></div>;
 }

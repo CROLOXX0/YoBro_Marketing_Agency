@@ -45,7 +45,7 @@ export default async function CustomPage({ params }: { params: { slug: string } 
     <>
       <main className="pt-32 md:pt-48 pb-16 md:pb-section-padding px-margin-mobile md:px-gutter max-w-container-max mx-auto min-h-screen">
         <ScrollReveal delay={0.1}>
-          <section className="mb-12 relative z-10 text-center">
+          <section className="mb-12 relative z-10 text-center overflow-hidden">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary-container/10 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
             <h1 className="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg mb-6 tracking-tighter text-crisp-white">
               {pageData.title}

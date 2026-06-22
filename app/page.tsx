@@ -1,148 +1,276 @@
-import ParticleCanvas from "@/components/ParticleCanvas";
-import GlassCard from "@/components/GlassCard";
-import ScrollReveal from "@/components/ScrollReveal";
-import RadarServices from "@/components/RadarServices";
-import ContactForm from "@/components/ContactForm";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <>
-      {/* Floating WhatsApp CTA */}
-      <a
-        className="wa-btn fixed bottom-8 right-8 z-50 bg-[#25D366] text-pure-black p-4 rounded-full shadow-lg hover:scale-110 transition-transform flex items-center justify-center btn-glow"
-        href="https://wa.me/918510062139"
-        target="_blank"
-        rel="noreferrer"
-      >
-        <svg
-          className="w-8 h-8"
-          fill="currentColor"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"></path>
-        </svg>
-      </a>
-
-      {/* Hero Section */}
-      <section
-        className="relative min-h-[90vh] flex items-center justify-center pt-24 md:pt-16 pb-section-padding overflow-hidden"
-        id="hero"
-      >
-        <div className="orb bg-primary-container w-[600px] h-[600px] top-[-200px] right-[-200px]"></div>
-        <div className="orb bg-tertiary-container w-[400px] h-[400px] bottom-[100px] left-[-100px]"></div>
-        
-        <ParticleCanvas />
-
-        <div className="relative z-10 container mx-auto px-margin-mobile md:px-section-padding text-center max-w-container-max hero-text-content -mt-16">
-          <ScrollReveal delay={0.1} direction="left">
-            <h1 className="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-crisp-white mb-8 max-w-4xl mx-auto">
-              Scale Your Brand with{" "}
-              <span className="text-primary-container">High-Impact</span>{" "}
-              Marketing.
-            </h1>
-          </ScrollReveal>
-          <ScrollReveal delay={0.2} direction="left">
-            <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-12">
-              We specialize in social media growth, lead generation, and premium
-              content creation for brands that want to dominate.
-            </p>
-          </ScrollReveal>
-          <ScrollReveal delay={0.3} direction="right">
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 hero-float">
-              <a href="https://wa.me/918510062139?text=Hi%20YoBro%20Marketing%20Team%2C%0A%0AI%20would%20like%20to%20book%20a%20FREE%20marketing%20consultation%20for%20my%20business.%0A%0ABusiness%20Name%3A%0ABusiness%20Type%3A%0ACurrent%20Social%20Media%20Pages%3A%0AMain%20Goal%20(More%20Leads%20%2F%20More%20Customers%20%2F%20Brand%20Awareness)%3A%0A%0APlease%20let%20me%20know%20the%20available%20time%20slots.%0A%0AThank%20you." target="_blank" rel="noopener noreferrer" className="px-8 py-4 bg-primary-container rounded-full font-label-bold text-label-bold text-pure-black btn-glow transition-all duration-300 hover:scale-105 inline-block">Book Free Consultation</a>
-              <a href="/pricing" className="w-full sm:w-auto px-8 py-4 border border-glass-stroke rounded-full font-label-bold text-label-bold text-crisp-white hover:bg-crisp-white hover:text-pure-black transition-all duration-300 inline-block text-center">
-                View Packages
-              </a>
-            </div>
-          </ScrollReveal>
+    <main>
+      {/* 1. Hero */}
+      <section className="relative min-h-[921px] flex items-center pt-32 pb-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto overflow-hidden">
+        <div className="absolute inset-0 z-0 pointer-events-none opacity-30 dark:opacity-20 mix-blend-screen">
+          <div
+            className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary blur-[120px] rounded-full animate-pulse"
+            style={{ animationDuration: "8s" }}
+          ></div>
+          <div
+            className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-secondary-container blur-[150px] rounded-full animate-pulse"
+            style={{ animationDuration: "12s" }}
+          ></div>
+        </div>
+        <div className="relative z-10 w-full flex flex-col items-center text-center fade-in-up">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-variant border border-outline-variant/30 mb-8 backdrop-blur-sm">
+            <span className="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+            <span className="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">
+              Digital Agency of the Year 2024
+            </span>
+          </div>
+          <h1 className="font-display-xl text-display-xl text-on-surface mb-6 max-w-4xl tracking-tight leading-tight">
+            We Build the <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
+              Digital Future
+            </span>
+          </h1>
+          <p className="font-body-lg text-body-lg text-on-surface-variant mb-12 max-w-2xl">
+            High-end web development and digital experiences for brands that refuse to blend in. We combine technical rigor with uncompromising creative flair.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-6">
+            <Link
+              className="magnetic-btn inline-flex items-center justify-center bg-primary text-on-primary font-label-sm text-label-sm px-8 py-4 rounded-full shadow-[0_0_30px_rgba(173,198,255,0.2)] hover:shadow-[0_0_40px_rgba(173,198,255,0.4)] transition-all"
+              href="#contact"
+            >
+              Start Your Project
+              <span className="material-symbols-outlined ml-2 text-sm" data-icon="arrow_forward">
+                arrow_forward
+              </span>
+            </Link>
+            <Link
+              className="magnetic-btn inline-flex items-center justify-center border border-outline-variant text-on-surface font-label-sm text-label-sm px-8 py-4 rounded-full hover:bg-surface-variant transition-colors backdrop-blur-sm"
+              href="#portfolio"
+            >
+              View Portfolio
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* Services Section */}
-      <section className="py-section-padding relative z-10" id="services">
-        <ScrollReveal>
-          <div className="container mx-auto px-margin-mobile md:px-section-padding max-w-container-max">
-            <div className="text-center mb-16">
-              <h2 className="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-crisp-white mb-4">
-                Our Services
-              </h2>
-              <p className="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto mb-8">
-                Comprehensive solutions engineered for aggressive growth.
-              </p>
-              
-              {/* Animated Radar Services Overview */}
-              <RadarServices />
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter mt-16">
-              {/* Service Card 1 */}
-              <ScrollReveal delay={0.1}>
-                <GlassCard className="rounded-xl p-8 hover:-translate-y-3 transition-all duration-500 group shadow-lg hover:shadow-primary-container/10 h-full">
-                  <div className="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center mb-6 text-primary-container group-hover:bg-primary-container group-hover:text-pure-black transition-colors">
-                    <span
-                      className="material-symbols-outlined"
-                      style={{ fontVariationSettings: "'FILL' 1" }}
-                    >
-                      campaign
-                    </span>
-                  </div>
-                  <h3 className="font-headline-md text-headline-md text-crisp-white mb-3 text-[24px]">
-                    Social Media Management
-                  </h3>
-                  <p className="font-body-md text-body-md text-on-surface-variant">
-                    End-to-end strategy, posting, and community engagement to
-                    build a loyal audience.
-                  </p>
-                </GlassCard>
-              </ScrollReveal>
-              {/* Service Card 2 */}
-              <ScrollReveal delay={0.2}>
-                <GlassCard className="rounded-xl p-8 hover:-translate-y-3 transition-all duration-500 group shadow-lg hover:shadow-primary-container/10 h-full">
-                  <div className="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center mb-6 text-primary-container group-hover:bg-primary-container group-hover:text-pure-black transition-colors">
-                    <span
-                      className="material-symbols-outlined"
-                      style={{ fontVariationSettings: "'FILL' 1" }}
-                    >
-                      movie
-                    </span>
-                  </div>
-                  <h3 className="font-headline-md text-headline-md text-crisp-white mb-3 text-[24px]">
-                    Content Creation & Reel Editing
-                  </h3>
-                  <p className="font-body-md text-body-md text-on-surface-variant">
-                    High-retention, trend-driven short-form content that converts
-                    viewers to followers.
-                  </p>
-                </GlassCard>
-              </ScrollReveal>
-              {/* Service Card 3 */}
-              <ScrollReveal delay={0.3}>
-                <GlassCard className="rounded-xl p-8 hover:-translate-y-3 transition-all duration-500 group shadow-lg hover:shadow-primary-container/10 h-full">
-                  <div className="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center mb-6 text-primary-container group-hover:bg-primary-container group-hover:text-pure-black transition-colors">
-                    <span
-                      className="material-symbols-outlined"
-                      style={{ fontVariationSettings: "'FILL' 1" }}
-                    >
-                      trending_up
-                    </span>
-                  </div>
-                  <h3 className="font-headline-md text-headline-md text-crisp-white mb-3 text-[24px]">
-                    Lead Generation
-                  </h3>
-                  <p className="font-body-md text-body-md text-on-surface-variant">
-                    Targeted campaigns designed to flood your pipeline with
-                    qualified prospects.
-                  </p>
-                </GlassCard>
-              </ScrollReveal>
-            </div>
+      {/* 2. Trusted By (Marquee) */}
+      <section className="py-12 border-y border-outline-variant/10 bg-surface-container-lowest/50 backdrop-blur-sm fade-in-up">
+        <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-6 text-center">
+          <p className="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">
+            Trusted by industry leaders
+          </p>
+        </div>
+        <div className="marquee-container w-full">
+          <div className="marquee-content gap-16 md:gap-32 px-16 md:px-32 items-center opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+            {/* Duplicate items for seamless scrolling */}
+            <span className="font-headline-md text-headline-md font-bold tracking-tighter">TechFlow</span>
+            <span className="font-headline-md text-headline-md font-bold tracking-tighter">NEXUS</span>
+            <span className="font-headline-md text-headline-md font-bold tracking-tighter">Zenith</span>
+            <span className="font-headline-md text-headline-md font-bold tracking-tighter">Aura</span>
+            <span className="font-headline-md text-headline-md font-bold tracking-tighter">TechFlow</span>
+            <span className="font-headline-md text-headline-md font-bold tracking-tighter">NEXUS</span>
+            <span className="font-headline-md text-headline-md font-bold tracking-tighter">Zenith</span>
+            <span className="font-headline-md text-headline-md font-bold tracking-tighter">Aura</span>
           </div>
-        </ScrollReveal>
+        </div>
       </section>
 
-      {/* Contact Form Section */}
-      <ContactForm />
-    </>
+      <div className="h-[160px]"></div>
+
+      {/* 3. Services (Bento) */}
+      <section className="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto fade-in-up" id="services">
+        <div className="mb-16 md:w-2/3">
+          <h2 className="font-headline-lg text-headline-lg text-on-surface mb-4">Engineering Excellence.</h2>
+          <p className="font-body-lg text-body-lg text-on-surface-variant">
+            We don't just build websites; we engineer digital platforms designed for scalability, performance, and conversion.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-base md:gap-gutter auto-rows-[300px]">
+          {/* Large Card */}
+          <div className="md:col-span-8 bg-surface-container border border-outline-variant/20 rounded-2xl p-8 bento-card relative overflow-hidden group">
+            <div className="absolute top-0 right-0 p-6 opacity-20 group-hover:opacity-100 transition-opacity">
+              <span className="material-symbols-outlined text-display-xl text-primary" data-icon="code_blocks">
+                code_blocks
+              </span>
+            </div>
+            <div className="h-full flex flex-col justify-end relative z-10">
+              <div className="inline-block px-3 py-1 bg-primary/10 text-primary font-label-sm text-label-sm rounded-full mb-4 w-max">
+                Core Expertise
+              </div>
+              <h3 className="font-headline-md text-headline-md text-on-surface mb-2">Web Application Development</h3>
+              <p className="font-body-md text-body-md text-on-surface-variant max-w-md">
+                Robust, secure, and scalable architectures built on modern tech stacks.
+              </p>
+            </div>
+          </div>
+          {/* Small Card 1 */}
+          <div className="md:col-span-4 bg-surface-container border border-outline-variant/20 rounded-2xl p-8 bento-card flex flex-col justify-between group">
+            <span className="material-symbols-outlined text-headline-md text-secondary group-hover:scale-110 transition-transform" data-icon="design_services">
+              design_services
+            </span>
+            <div>
+              <h3 className="font-body-lg text-body-lg font-bold text-on-surface mb-2">UI/UX Design</h3>
+              <p className="font-body-md text-body-md text-on-surface-variant text-sm">
+                Intuitive interfaces grounded in user psychology.
+              </p>
+            </div>
+          </div>
+          {/* Small Card 2 */}
+          <div className="md:col-span-4 bg-surface-container border border-outline-variant/20 rounded-2xl p-8 bento-card flex flex-col justify-between group">
+            <span className="material-symbols-outlined text-headline-md text-tertiary group-hover:scale-110 transition-transform" data-icon="speed">
+              speed
+            </span>
+            <div>
+              <h3 className="font-body-lg text-body-lg font-bold text-on-surface mb-2">Performance Optimization</h3>
+              <p className="font-body-md text-body-md text-on-surface-variant text-sm">
+                Lightning-fast load times for better SEO and retention.
+              </p>
+            </div>
+          </div>
+          {/* Medium Card */}
+          <div className="md:col-span-8 bg-gradient-to-br from-surface-container to-surface-variant border border-outline-variant/20 rounded-2xl p-8 bento-card flex items-end">
+            <div>
+              <h3 className="font-headline-md text-headline-md text-on-surface mb-2">E-Commerce Solutions</h3>
+              <p className="font-body-md text-body-md text-on-surface-variant max-w-lg">
+                Custom storefronts that turn visitors into loyal customers with seamless checkout flows.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div className="h-[160px]"></div>
+
+      {/* 5. Portfolio (Masonry-ish) */}
+      <section className="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto fade-in-up" id="portfolio">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+          <div className="md:w-1/2">
+            <h2 className="font-headline-lg text-headline-lg text-on-surface mb-4">Selected Works.</h2>
+            <p className="font-body-lg text-body-lg text-on-surface-variant">
+              A glimpse into digital platforms we've crafted for forward-thinking brands.
+            </p>
+          </div>
+          <Link className="font-label-sm text-label-sm text-primary hover:text-primary-container flex items-center gap-2 group" href="#">
+            View All Projects
+            <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">
+              arrow_forward
+            </span>
+          </Link>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Project 1 */}
+          <div className="portfolio-item group relative rounded-2xl overflow-hidden aspect-[4/3] bg-surface-variant cursor-pointer">
+            <Image
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIJO7gIwlqgIOm0zKNBkkhnSI5ikc8GRME9sW1-gGsLmRMdOYCW-GwS883FJvXBZhTRtV0XB7ED_49Bs2y4r5_JV-KLPFBaB1U5QLLjrfkflS6WuBUT1MwkCe-LyPvkI_uDblh4hk5bFbsBvHEd3Njo-2lQV5ji6d413ucHjqTeu6j1CkGEVQUvaOBVAFMQEwpMn1Fuh6Ja6H8C1HGIFBo5FhcFdMOYZxlw2hIbjvlXX01qriBW15TT8gyDYp0DJo1TvJ1hXyHx2E"
+              alt="Nexus Dashboard"
+              fill
+              className="object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+            <div className="portfolio-overlay absolute inset-0 bg-surface-dim/80 flex flex-col justify-end p-8">
+              <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-400">
+                <span className="font-label-sm text-label-sm text-primary mb-2 block">Fintech / Web App</span>
+                <h3 className="font-headline-md text-headline-md text-on-surface">Nexus Dashboard</h3>
+              </div>
+            </div>
+          </div>
+          {/* Project 2 */}
+          <div className="portfolio-item group relative rounded-2xl overflow-hidden aspect-[4/3] bg-surface-variant cursor-pointer md:mt-16">
+            <Image
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKv5Rf01PxZLEiZjzbSKTHZXx-iKD98ZKxRozJhijiqLh8eqps63rGR11sXiRpfCOmxbTHezEwjNwjRckJCnjV2mF14kta8EtNDVQ6PWrO-KYD-4fxxD_73V3WAslQUHSG2sXvlkQugsZMxORmJZyCL0TSF12YYAqFkEDVbDMBZyz5rLb_vmpkrggS9hXRBSYOx1wJI1dpMr6fkt7jhIxoRYFC42Au2Ef133bJMhWc7VfX59QGkJz_2INjV7xkLODZQtVFqUrjNQY"
+              alt="Aura Studio"
+              fill
+              className="object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+            <div className="portfolio-overlay absolute inset-0 bg-surface-dim/80 flex flex-col justify-end p-8">
+              <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-400">
+                <span className="font-label-sm text-label-sm text-secondary mb-2 block">E-Commerce / Branding</span>
+                <h3 className="font-headline-md text-headline-md text-on-surface">Aura Studio</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div className="h-[160px]"></div>
+
+      {/* Contact Form */}
+      <section className="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto fade-in-up mb-32" id="contact">
+        <div className="bg-surface-container-high border border-outline-variant/20 rounded-3xl p-8 md:p-16 flex flex-col md:flex-row gap-16 relative overflow-hidden">
+          {/* Decorative blur */}
+          <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-primary/10 blur-[100px] rounded-full pointer-events-none"></div>
+          <div className="md:w-1/2 relative z-10">
+            <h2 className="font-headline-lg text-headline-lg text-on-surface mb-6">Let's build something extraordinary.</h2>
+            <p className="font-body-lg text-body-lg text-on-surface-variant mb-12">
+              Ready to transform your digital presence? Reach out to schedule a technical discovery call.
+            </p>
+            <div className="space-y-6">
+              <Link className="flex items-center gap-4 text-on-surface hover:text-primary transition-colors group" href="mailto:hello@yobrostudio.com">
+                <div className="w-12 h-12 rounded-full bg-surface-variant flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                  <span className="material-symbols-outlined" data-icon="mail">mail</span>
+                </div>
+                <span className="font-body-lg text-body-lg">hello@yobrostudio.com</span>
+              </Link>
+              <Link className="flex items-center gap-4 text-on-surface hover:text-tertiary transition-colors group" href="https://wa.me/918510062139">
+                <div className="w-12 h-12 rounded-full bg-surface-variant flex items-center justify-center group-hover:bg-tertiary/20 transition-colors">
+                  <span className="material-symbols-outlined" data-icon="chat">chat</span>
+                </div>
+                <span className="font-body-lg text-body-lg">WhatsApp Us Directly</span>
+              </Link>
+            </div>
+          </div>
+          <div className="md:w-1/2 relative z-10">
+            <form className="space-y-6">
+              <div className="relative">
+                <input
+                  className="w-full bg-transparent border-b border-outline-variant py-4 font-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-0 peer placeholder-transparent transition-colors"
+                  id="name"
+                  placeholder="Name"
+                  type="text"
+                />
+                <label
+                  className="absolute left-0 top-4 font-label-sm text-label-sm text-on-surface-variant transition-all peer-focus:-top-2 peer-focus:text-xs peer-focus:text-primary peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm"
+                  htmlFor="name"
+                >
+                  Full Name
+                </label>
+              </div>
+              <div className="relative">
+                <input
+                  className="w-full bg-transparent border-b border-outline-variant py-4 font-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-0 peer placeholder-transparent transition-colors"
+                  id="email"
+                  placeholder="Email"
+                  type="email"
+                />
+                <label
+                  className="absolute left-0 top-4 font-label-sm text-label-sm text-on-surface-variant transition-all peer-focus:-top-2 peer-focus:text-xs peer-focus:text-primary peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm"
+                  htmlFor="email"
+                >
+                  Email Address
+                </label>
+              </div>
+              <div className="relative">
+                <textarea
+                  className="w-full bg-transparent border-b border-outline-variant py-4 font-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-0 peer placeholder-transparent transition-colors resize-none"
+                  id="message"
+                  placeholder="Message"
+                  rows={4}
+                ></textarea>
+                <label
+                  className="absolute left-0 top-4 font-label-sm text-label-sm text-on-surface-variant transition-all peer-focus:-top-2 peer-focus:text-xs peer-focus:text-primary peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm"
+                  htmlFor="message"
+                >
+                  Project Details
+                </label>
+              </div>
+              <button
+                className="w-full bg-primary text-on-primary font-label-sm text-label-sm py-4 rounded-full magnetic-btn hover:bg-primary-container transition-colors mt-8"
+                type="button"
+              >
+                Send Request
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }

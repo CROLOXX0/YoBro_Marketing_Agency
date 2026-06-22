@@ -21,7 +21,7 @@ export default async function BlogIndex() {
   return (
     <main className="pt-32 md:pt-48 pb-16 md:pb-section-padding px-margin-mobile md:px-gutter max-w-container-max mx-auto min-h-screen">
       <ScrollReveal delay={0.1}>
-        <section className="mb-16 md:mb-24 text-center relative z-10">
+        <section className="mb-16 md:mb-24 text-center relative z-10 overflow-hidden">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary-container/10 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
           <h1 className="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg mb-6 tracking-tighter text-crisp-white">
             Our <span className="text-primary text-glow">Insights</span>.
